@@ -8,6 +8,9 @@ const OperationSchema = new Schema(
       type: Date,
       required: true,
     },
+    account: {
+      type: String,
+    },
     currencyBase: {
       type: String,
       required: true,
@@ -32,11 +35,11 @@ const OperationSchema = new Schema(
       type: Number,
     },
     risk: {
-      type: Number,
+      type: String,
       required: true,
     },
     lottery: {
-      type: Number,
+      type: String,
       required: true,
     },
     riskBeneffi: {
@@ -45,17 +48,24 @@ const OperationSchema = new Schema(
     linkEntry: {
       type: String,
     },
+    typeOfEntry: {
+      type: String,
+    },
     linkOff: {
       type: String,
     },
-    profitPercentaje: {
-      type: Number,
+    resultPercentaje: {
+      type: String,
     },
-    profitAmount: {
+    resultAmount: {
       type: Number,
     },
     confirmationsOperation: {
       type: Array,
+    },
+    resulTrade: {
+      type: String,
+      default: 'Pendiente',
     },
   },
   {

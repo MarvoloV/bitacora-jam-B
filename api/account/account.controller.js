@@ -54,11 +54,11 @@ async function getAccountByIdHandler(req, res) {
 async function updateAccountHandler(req, res) {
   const { id } = req.params;
   try {
-    const { title, description, organizer, place } = req.body;
+    /* const { title, description, organizer, place } = req.body;
 
     if (!title && !description && !organizer && !place) {
       return res.status(422).json({ response: 'Missing values in the body' });
-    }
+    } */
 
     const account = await updateAccount(id, req.body, {
       new: true,

@@ -15,13 +15,13 @@ const { isAuthenticated, hasRole } = require('../../auth/auth.services');
 const router = Router();
 
 router.get('/', getAllAccountsHandler);
-/* router.post('/', isAuthenticated(), createAccountHandler); */
-router.post(
+router.post('/', isAuthenticated(), createAccountHandler);
+/* router.post(
   '/',
   isAuthenticated(),
   validate(AccountSchema, 'body'),
   createAccountHandler,
-);
+); */
 router.get('/:id', validate(AccountSchema, 'params'), getAccountByIdHandler);
 router.delete('/:id', hasRole(['user']), deleteAccountHandler);
 router.patch('/:id', isAuthenticated(), updateAccountHandler);

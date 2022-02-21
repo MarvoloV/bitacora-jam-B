@@ -15,13 +15,13 @@ const { isAuthenticated, hasRole } = require('../../auth/auth.services');
 const router = Router();
 
 router.get('/', getAllOperationsHandler);
-/* router.post('/', isAuthenticated(), createOperationHandler); */
-router.post(
+router.post('/', isAuthenticated(), createOperationHandler);
+/* router.post(
   '/',
   isAuthenticated(),
   validate(OperationSchema, 'body'),
   createOperationHandler,
-);
+); */
 router.get(
   '/:id',
   validate(OperationSchema, 'params'),
