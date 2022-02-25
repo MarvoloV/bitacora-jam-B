@@ -21,6 +21,9 @@ const userSchema = new Schema(
       uppercase: true,
       required: true,
     },
+    name: {
+      type: String,
+    },
     password: {
       type: String,
       required: true,
@@ -31,6 +34,7 @@ const userSchema = new Schema(
       age: Number,
     },
     cell: String,
+    country: String,
     picture: String,
     role: {
       type: String,
