@@ -11,6 +11,10 @@ const OperationSchema = new Schema(
     account: {
       type: String,
     },
+    tradingResult: {
+      type: String,
+      default: 'ACTIVA',
+    },
     currencyBase: {
       type: String,
       required: true,
@@ -27,6 +31,9 @@ const OperationSchema = new Schema(
       type: Number,
       required: true,
     },
+    typeOfEntry: {
+      type: String,
+    },
     stopLoss: {
       type: Number,
       required: true,
@@ -34,38 +41,40 @@ const OperationSchema = new Schema(
     takeProfit: {
       type: Number,
     },
-    risk: {
-      type: String,
-      required: true,
-    },
-    lottery: {
-      type: String,
-      required: true,
-    },
-    riskBeneffi: {
-      type: String,
+    confirmationsOperation: {
+      type: Array,
     },
     linkEntry: {
       type: String,
     },
-    typeOfEntry: {
+    linkOutput: {
       type: String,
     },
-    linkOff: {
-      type: String,
-    },
-    resultPercentaje: {
-      type: String,
-    },
-    resultAmount: {
+    risk: {
       type: Number,
+      required: true,
     },
-    confirmationsOperation: {
-      type: Array,
+    lottery: {
+      type: Number,
+      required: true,
     },
-    resulTrade: {
+    riskBenefit: {
       type: String,
-      default: 'Pendiente',
+    },
+    resultPips: {
+      type: Number,
+      default: 0,
+    },
+    resultPercentage: {
+      type: Number,
+      default: 0,
+    },
+    resultMoney: {
+      type: Number,
+      default: 0,
+    },
+    accountId: {
+      type: String,
     },
   },
   {

@@ -8,6 +8,7 @@ const {
   getAllOperationsHandler,
   getOperationByIdHandler,
   updateOperationHandler,
+  getOperationDate,
 } = require('./operation.controller');
 
 const { isAuthenticated, hasRole } = require('../../auth/auth.services');
@@ -15,6 +16,11 @@ const { isAuthenticated, hasRole } = require('../../auth/auth.services');
 const router = Router();
 
 router.get('/', getAllOperationsHandler);
+router.post(
+  '/date',
+  // validate(OperationSchema, 'params'),
+  getOperationDate,
+);
 router.post('/', isAuthenticated(), createOperationHandler);
 /* router.post(
   '/',

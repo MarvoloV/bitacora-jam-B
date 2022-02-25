@@ -1,4 +1,5 @@
 const Operation = require('./operation.model');
+const Account = require('../account/account.model');
 /**
  * Get all Operations
  * @returns all Operations
@@ -66,10 +67,26 @@ async function deleteOperation(id) {
     throw error;
   }
 }
+async function getOperationbyDate(idAccount, startDate, endDate) {
+  try {
+    const account = await Account.findById(idAccount);
+    const operations = await Operation.find({
+      dateOperation: {
+        $gte: new Date(startDate),
+        $lte: new Date(endDate),
+      },
+      accountId: account._id.toString(),
+    });
+    return operations;
+  } catch (error) {
+    throw error;
+  }
+}
 module.exports = {
   getAllOperations,
   getOperationById,
   createOperation,
   updateOperation,
   deleteOperation,
+  getOperationbyDate,
 };
